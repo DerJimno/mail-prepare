@@ -1,0 +1,8 @@
+gpg --full-gen-key
+pass init $1
+
+gpg --with-keygrip -K | grep -A 2 $2 | tail -n 1 | sed -e 's/Keygrip = //g' -e 's/^[[:space:]]*//g' > .pam-gnupg
+gpg-connect-agent --no-autostart reloadagent /bye
+
+mw -a $1
+sed -e "s/mail_address/$1/g" -e "s/real_name/$2/" .config/mutt/.mutt-template > ".config/mutt/accounts/$1.muttrc"
