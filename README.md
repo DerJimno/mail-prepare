@@ -7,5 +7,5 @@ prepare \<email-adress> \<name>
 
 run with:
 ```
-sh <(curl -Lks https://raw.githubusercontent.com/DerJimno/mail-prepare/main/prepare <email-adress> <name>)
+sh <(curl -Lks https://raw.githubusercontent.com/DerJimno/mail-prepare/main/prepare) <email-adress> <name>
 ```
